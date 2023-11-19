@@ -3,19 +3,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //de que el DOM está listo para recibir acciones
 });
 
-/*window.addEventListener("scroll", function() {
+let btnGTTvisible = false;
+window.addEventListener("scroll", function() {
     let btnTop = document.getElementsByClassName("go-to-top");
     console.log("btnTop classlist: "+btnTop.classList);
-    if(document.documentElement.scrollTop >= (window.innerHeight * 0.3)){
-        if(!btnTop.classList.contains("active")){
-            btnTop.classList.add("active");
-        }
+    
+    if(document.documentElement.scrollTop >= window.innerHeight * 0.3 ||
+       document.body.scrollTop >= window.innerHeight * 0.3) {
+        //if(!btnTop.classList.contains("active")){
+          if(!btnGTTvisible) document.querySelector(".go-to-top").classList.toggle("active");
+          btnGTTvisible = true;
     }
     else
     {
-        btnTop.classList.remove("active");
+      if(btnGTTvisible) document.querySelector(".go-to-top").classList.toggle("active");
+      btnGTTvisible = false;
     }
-});*/
+});
+/*let btnGTT_click = document.querySelector(".go-to-top");
+btnGTT_click.onclick = function(){
+  //document.body.scrollTop = 0; // For Safari
+  //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  window.scrollTo({top: 0, behavior: 'smooth'});
+};*/
 
 //Clase 8 - Javascript
 //alert("Hola este es mi Javascript");
@@ -49,12 +59,15 @@ function setTituloSeccion(seccion, texto){
     return elemento.innerText = texto;
 }
 
-// MENU
+// BOTON MENU
 let menu_click = document.querySelector(".checkbtn");
 menu_click.onclick = function(){
     document.querySelector(".navbar").classList.toggle("active");
     document.querySelector(".checkbtn").classList.toggle("active");
 };
+function fMenuIcon(x) {
+  x.classList.toggle("change");
+}
 
 // FORMULARIOS
 const form = document.getElementById("form");

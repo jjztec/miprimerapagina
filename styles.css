@@ -1,9 +1,20 @@
 /* ==== GENERALES ==== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+html{
+  /*correcion del dezplazamiento/offset 
+     para las secciones con el alto de la barra fixed */
+  scroll-padding-top: 3em;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+ *,
+ *::after,
+ *::before {
+  box-sizing: inherit;
+  
+ }
 
 body {
     display: flex;
@@ -11,8 +22,6 @@ body {
     background: url(img/bg_img.jpg) no-repeat center fixed;
     background-size: cover; /* adapta el background a todo viewport*/
     color: grey;
-    margin: 0 0 0 0;
-    padding: 0;
     font-family: 'Courier Prime', monospace; /*Paso 16 - Fuente de Google*/
 }
 
@@ -30,7 +39,7 @@ body {
     background-color: rgba(194, 248, 114, 0.9);
     align-items: center;
     justify-content: space-between;
-    height: auto;
+    height: 3em;
 }
 .container-logo {
   margin: 0.5em;
@@ -56,7 +65,7 @@ header nav ul { /* Estilo de Lista de Navegación/Menú */
 nav ul.menu li { /* estilos para menu responsive con Js */
   display: flex; /*inline-block*/
   justify-content: center;
-  line-height: 56px;
+  line-height: 46px;
   /*margin: 0 5px;*/
   padding-right: 0.5em;
   padding-left: 0.5em;
@@ -120,11 +129,10 @@ header nav ul a:active {
 /*---- Seccion Acerca... ----*/
 #seccion-about {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   min-height: 100vh;
-  flex-direction: column;
 }
 
 .tarjeta { /* Estilo de tarjeta Acerca de mi */
@@ -135,14 +143,12 @@ header nav ul a:active {
 }
 .img-tarjeta {
   display: flex;
-  height: 15rem;
-  width: 25%;
-  padding: 0.5em;
+  height: 15em;
+  width: 15em;
+  margin: 0.5em;
   border: 1px #ffffff solid;
-
 }
-#img-perfil {
-  
+.img-objfit {
   object-fit: contain; /*ajutasta esta imajen/objeto al tamaño de su contenedor padre*/
   width: 100%;
   height: 100%;
@@ -152,6 +158,10 @@ header nav ul a:active {
   align-items: center;
   height: 15rem;
   width: 75%;
+}
+.txt-tarjeta p {
+  padding: 0;
+  margin: 0;
 }
 
 /*---- Estilos Sección Contacto ----*/
@@ -215,8 +225,8 @@ header nav ul a:active {
   bottom: 0;
   width: 100%;
   height: 3em;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 
@@ -386,6 +396,16 @@ header nav ul {
   .tarjeta {
     flex-direction: column;
   }
+  .img-tarjeta {
+    height: auto;
+    width: 75%;
+  }
+  .txt-tarjeta{
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+  }
+
   .mail {
     font-size: 2em;
   }
@@ -476,6 +496,12 @@ header nav ul {
   }
   .img-tarjeta {
     height: auto;
+    width: 75%;
+  }
+  .txt-tarjeta {
+    display: flex;
+    height: auto;
+    align-items: flex-start;
   }
 
   #seccion-contacto {
@@ -510,14 +536,14 @@ header nav ul {
     font-size: 28px;
     text-align: center;
     position: fixed;
-    bottom: 30px;
+    bottom: 2em;
     z-index: 10;
     line-height: 1.4;
     -moz-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s;
     -webkit-transition: all .2s;
-    right: 10px;
+    right: 0.5em;
     right: -ms-calc(-594.5%);
     transform: translateY(-60%);
     -webkit-transform: translateY(-60%);
@@ -571,6 +597,36 @@ header nav ul {
     top: -165px;
   }
 
+  /* ---- ICONO MENU ANIMADO ---- */
+  .aniMenuIcon {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 0px 3px;
+  }
+  .change.aniMenuIcon {
+    border: 3px solid #ffffff;
+  }
+  .bar1, .bar2, .bar3 {
+    width: 1.5em;
+    height: 0.2em;
+    background-color: red;/*rgba(142,200,55,0.9);*/ /*rgba(255, 255, 255, 0.767);*/
+    margin: 0.25em 0;
+    transition: 0.4s;
+  }
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-5px, 5px);
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+  .change .bar2 {
+    opacity: 0;
+  }
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-5px, -5px);
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  
   /* ------------- ICONOS -------------- */
 /*icon fb*/
 .fa-facebook-official {

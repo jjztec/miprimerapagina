@@ -29,7 +29,12 @@
         </div>
         <!-- <input type="checkbox" id="check" /> -->
           <label id="btnMenu" for="check" class="checkbtn">
-            <i class="fa-solid fa-bars"></i>
+            <!-- <i class="fa-solid fa-bars"></i> -->
+            <div class="aniMenuIcon" onclick="fMenuIcon(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
           </label>
         <nav class="navbar">
           <ul class="menu">
@@ -59,7 +64,7 @@
             <div class="titulo-tarjeta">
             </div>
             <div class="img-tarjeta">
-              <img id="img-perfil" src="img/img_logo1.png" alt="Mi imagen de perfil."></img>
+              <img id="img-perfil" class="img-objfit" src="img/img_logo1.png" alt="Mi imagen de perfil."></img>
             </div>
             <div class="txt-tarjeta">
               <p>Mi primera web. Curso Egg Live - PWDC
@@ -167,7 +172,11 @@
         </div>
       </main>
 
-      <div class="go-to-top"><i class="iconify" data-icon="bi:arrow-up-short"></i></div>
+      <a href="#seccion-home">
+        <div class="go-to-top">
+          <i class="iconify" data-icon="bi:arrow-up-short"></i>
+        </div>
+      </a>
 
       <footer class="footer" id="mi-footer">
         <p>© Copyright <strong>JZTec</strong> 2023. All Rights Reserved. | Designed by <strong>JJZ</strong></p>
