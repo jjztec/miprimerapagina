@@ -100,3 +100,14 @@ form.addEventListener("submit", (e) => {
     e.preventDefault(); // Evita que el formulario se envíe automáticamente
   }
 });
+
+//lib typed
+var typed = new Typed('#typed', {
+  stringsElement: '#typed-strings',
+  typeSpeed: 50,
+  backSpeed: 20,
+  fadeOut: false,
+  loop: true,
+  backDelay: 500,
+  startDelay: 1000
+});
